@@ -1,33 +1,33 @@
 package mejn;
 
-import predmety.Predmet;
+import items.Item;
 import characters.*;
-import creature.Kreatura;
-import quest.Ukol;
+import characters.Character;
+import quest.Quest;
 
 public class Menu { // OPRAVIT PRODEJ ITEMU A MAKAT NA XML
 
 	public static void main(String[] args) {
 		
 		
-		Postava typek = new Rytir("Konan");
-		Postava magic = new Kouzelnik("Mrakoplas");
+		Character typek = new Knight("Konan");
+		Character magic = new Mage("Mrakoplas");
 		
-		System.out.println(typek.boj(Kreatura.setKreatura()));
-		System.out.println(magic.boj(Kreatura.setKreatura()));
+		System.out.println(typek.fight(Creature.setCreature()));
+		System.out.println(magic.fight(Creature.setCreature()));
 		
-		System.out.println(typek.boj(magic));
-		System.out.println(magic.boj(typek));
+		System.out.println(typek.fight(magic));
+		System.out.println(magic.fight(typek));
 		
-		System.out.println(magic.getPredmet(Predmet.setPredmet()));
-		System.out.println(magic.getPredmet(Predmet.setPredmet()));
-		System.out.println(typek.getPredmet(Predmet.setPredmet()));
-		System.out.println(typek.getPredmet(Predmet.setPredmet()));
+		System.out.println(magic.getItem(Item.setItem()));
+		System.out.println(magic.getItem(Item.setItem()));
+		System.out.println(typek.getItem(Item.setItem()));
+		System.out.println(typek.getItem(Item.setItem()));
 
 		
-		System.out.println(magic.boj(typek));
-		System.out.println(typek.boj(magic));
-		typek.doleceni(3);
+		System.out.println(magic.fight(typek));
+		System.out.println(typek.fight(magic));
+		typek.heal(3);
 		
 		System.out.println(magic.info());
 		System.out.println(typek.info());
@@ -35,17 +35,17 @@ public class Menu { // OPRAVIT PRODEJ ITEMU A MAKAT NA XML
 		magic.levelUP();
 		typek.levelUP();
 		
-		System.out.println(typek.aktivujQuest(Ukol.setUkol(), Kreatura.setKreatura()));
-		System.out.println(magic.aktivujQuest(Ukol.setUkol(), Kreatura.setKreatura()));
+		System.out.println(typek.activateQ(Quest.setQuest(), Creature.setCreature()));
+		System.out.println(magic.activateQ(Quest.setQuest(), Creature.setCreature()));
 		
 		System.out.println(magic.info());
 		
-		System.out.println(magic.inventar());
+		System.out.println(magic.inventory());
 		
-		System.out.println(magic.odpocinek(3));
+		System.out.println(magic.sleep(3));
 		
-		magic.prodejItem(magic.predmety.get(0));
+		magic.sellItem(magic.items.get(0));
 		
-		System.out.println(typek.pracuj(2));
+		System.out.println(typek.work(2));
 	}
 }
