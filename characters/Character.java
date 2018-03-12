@@ -147,7 +147,6 @@ public abstract class Character implements CharInterface{
 	
 	public void sellItem(Item item){
 		while (item.returnNick().equals("Zadny predmet")){
-			//neco uz nevim co, chci jit dom :D
 		}
 		System.out.println(items);
 		this.gold += (item.returnPrize())/2;
